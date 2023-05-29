@@ -1,0 +1,57 @@
+% Configuration des marges
+\usepackage[top=0.8in, bottom=0.8in, left=0.8in, right=0.8in]{geometry}
+
+% Personnalisation des titres de section et table des matières
+\usepackage{sectsty}
+\usepackage{tocloft}
+\usepackage[pdftex, pdfauthor={Kevin Delfour}, pdftitle={En Quête d'Expérience : Le chemin du.de la jeune Développeur·euse}, pdfkeywords={développeur, développeuse, expérience, quête, open source}, hidelinks]{hyperref}
+
+% Cadres, tailles de police et en-têtes/pieds de page personnalisés
+\usepackage{framed}
+\usepackage{anyfontsize}
+\usepackage{fancyhdr}
+
+% Police Garamond et paramètres de langue
+\usepackage{ebgaramond}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+
+% Couleurs personnalisées et graphiques TikZ
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{microtype}
+\usepackage{GS1}
+\usepackage{qrcode}
+\usetikzlibrary{calc}
+
+\usepackage[labelformat=empty]{caption}
+\captionsetup{justification=raggedleft, font={tiny, color=gray}, singlelinecheck=false}
+
+% Contenu : texte aléatoire, boucles, images et commandes supplémentaires
+\usepackage{lipsum}
+\usepackage{pgffor}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+
+% Configuration de la mise en page
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Configuration de la table des matières
+\setcounter{tocdepth}{2}
+\renewcommand{\cftpartfont}{\normalfont\bfseries\Large}
+\renewcommand{\cftchapfont}{\normalfont\bfseries}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecfont}{\normalfont\small}
+
+% Configuration des en-têtes et pieds de page personnalisés
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LO, L]{ \color{gray}\scriptsize\leftmark}
+\fancyfoot{}
+\fancyfoot[R]{\scriptsize\thepage}
+\renewcommand{\headrulewidth}{0pt}
+

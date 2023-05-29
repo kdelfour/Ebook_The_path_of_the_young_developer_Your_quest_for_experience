@@ -1,0 +1,38 @@
+% Préambule
+\documentclass[oneside, a5paper, 12pt]{book}
+\input{structure.tex}
+
+% Commandes personnalisées
+\newcommand{\subtitle}{Votre Quête pour l'Expérience}
+\newcommand{\edition}{2023}
+
+% Informations sur le document
+\title{En Quête d'Expérience : \\Le chemin du.de la jeune Développeur·euse}
+\author{Kevin Delfour}
+\date{\today}
+
+% Début du document
+\begin{document}
+
+% Front matter
+\frontmatter
+
+% Cover
+\input{./parts/cover.tex}
+
+\newpage
+\thispagestyle{empty} % Supprime les en-têtes et pieds de page sur cette page
+\mbox{}
+% Page blanche
+
+% Interior cover
+\input{./parts/interior_cover.tex}
+
+% Corpus
+\input{./parts/corpus.tex}
+
+% Back cover
+\input{./parts/back_cover.tex}
+
+% Fin du document
+\end{document}

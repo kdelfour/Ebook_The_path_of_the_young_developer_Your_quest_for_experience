@@ -1,0 +1,22 @@
+\newpage
+% ---- Couverture
+% Insert the image as the background for the cover page
+\begin{tikzpicture}[overlay,remember picture]
+    \node[inner sep=0pt, anchor=south west] at (current page.south west) {
+        \includegraphics[keepaspectratio, width=\paperwidth]{images/f6d72728-c5d7-4d9a-9c79-633bd48aeb30.png}
+    };
+
+    % Title
+    \node[align=center] at ($(current page.center)+(0,-5.5)$)
+    {
+    {\fontsize{35}{72} \fontfamily{cmr}\selectfont \textcolor{white}{\textbf{En Quête d'Expérience}}}\\[0.5cm]
+    {\fontsize{25}{72} \fontfamily{cmr}\selectfont \textcolor{white}{Le Chemin du.de la Jeune}}\\[0.25cm]
+    {\fontsize{25}{72} \fontfamily{cmr}\selectfont \textcolor{white}{Développeur·euse}}
+    };
+
+    % Author
+    \node[align=center] at ($(current page.center)+(0,9.2)$)
+    {
+        {\fontsize{12}{19.2} \textcolor{black}{\selectfont {Kevin Delfour}}}\\[3pt]
+    };
+\end{tikzpicture}

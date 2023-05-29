@@ -1,0 +1,78 @@
+name: Build PDF and EPUB
+
+on:
+  push:
+    branches:
+      - main # assuming your default branch is 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+
+      - name: Add timestamp to PDF filename
+        run: mv main.pdf "ebook_la_quete_de_l_experience-$(date +%Y%m%d%H%M%S).pdf"
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: The_path_of_the_young_Developer_Your_Quest_for_Experience
+          path: "ebook_la_quete_de_l_experience-*.pdf"
+          if-no-files-found: error
+          archive_format: none
+
+      - name: Install pandoc
+        run: sudo apt-get install -y pandoc
+
+      - name: Convert LaTeX to EPUB
+        run: |
+          pandoc main.tex --epub-cover-image=images/cover.png -o  ebook_la_quete_de_l_experience.epub
+
+      - name: Generate tag and release names
+        id: generate_names
+        run: |
+          echo "::set-output name=tag_name::${{ github.ref_name }}-$(date +%s)"
+          echo "::set-output name=release_name::Release ${{ github.ref_name }}-$(date +%s)"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          tag_name: ${{ steps.generate_names.outputs.tag_name }}
+          release_name: ${{ steps.generate_names.outputs.release_name }}
+          draft: false
+          prerelease: false
+
+      - name: Upload EPUB Release Asset
+        id: upload-release-asset-epub
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./ebook_la_quete_de_l_experience.epub
+          asset_name: ebook_la_quete_de_l_experience.epub
+          asset_content_type: application/epub+zip
+
+      - name: Rename PDF
+        run: mv ebook_la_quete_de_l_experience-*.pdf ebook_la_quete_de_l_experience.pdf
+
+      - name: Upload PDF Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./ebook_la_quete_de_l_experience.pdf
+          asset_name: ebook_la_quete_de_l_experience.pdf
+          asset_content_type: application/pdf

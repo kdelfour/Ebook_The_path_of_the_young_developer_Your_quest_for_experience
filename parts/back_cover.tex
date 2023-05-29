@@ -1,0 +1,58 @@
+\newpage
+\thispagestyle{empty}
+
+
+\begin{tikzpicture}[overlay,remember picture]
+    \node[align=left, text width=\textwidth] at ($(current page.center)+(0,4)$)
+    {
+        {\fontsize{25}{72} \fontfamily{cmr}\selectfont \textcolor{black}{\textbf{En Quête d'Expérience}}}\\[0.5cm]
+
+        \fontsize{12}{12} \fontfamily{cmr}\selectfont \textcolor{black}{
+            Ce livre est un guide destiné aux jeunes développeur·se·s souhaitant acquérir de l'expérience pour maximiser leurs chances de trouver un emploi. \\[0.25cm]
+            Ce livre offre des conseils sur les différentes stratégies à adopter pour démontrer une certaine expérience et bien plus encore. \\[0.25cm]
+            Il a pour objectif d'aider les développeur·se·s à mettre en place des actions concrètes qui leur permettront, par la suite, de justifier leur niveau d'expérience et leur passion lors de leur première recherche d'emploi.
+        }
+    };
+
+    \node[align=left, text width=\textwidth] at ($(current page.center)+(0,-3)$)
+    {
+        {\fontsize{20}{72} \fontfamily{cmr}\selectfont \textcolor{black}{\textbf{À propos de l'auteur}}}\\[0.5cm]
+
+        \fontsize{12}{12} \fontfamily{cmr}\selectfont \textcolor{black}{Kevin Delfour est un développeur passionné et expérimenté qui a travaillé sur de nombreux projets dans divers domaines. Il partage ses connaissances et son expérience à travers ce livre pour aider les jeunes développeur·se·s à progresser dans leur carrière.}
+    };
+
+    \node[align=center, text width=\textwidth] at ($(current page.center)+(0,-8)$)
+    {
+        \small{\textcolor{darkgray}{ISBN: 978-615-5297-19-9}}\\
+        \small{\textcolor{darkgray}{Edition \textbf{{Le Vilain Petit Dev}}}}
+
+        \savebox0{\EANBarcode[module_height=15mm]{ISBN 978-615-5297-19-9}}
+        \colorbox{white}{
+            \usebox0
+            \raisebox{\depth}{\qrcode[height=\ht0]{github.com/kdelfour/Ebook_The_path_of_the_young_developer_Your_quest_for_experience}
+            }
+        }
+    };
+
+\end{tikzpicture}
+
+% \vspace*{\fill}
+% \begin{flushleft}
+
+%     \vfill
+
+%     \textbf{\Large {En Quête d'Expérience}}\\[0.25cm]
+%     \textit{\textcolor{gray}{En Quête d'Expérience}} est un guide destiné aux jeunes développeur·se·s souhaitant acquérir de l'expérience pour maximiser leurs chances de trouver un emploi. Ce livre offre des conseils sur les différentes stratégies à adopter pour démontrer une certaine expérience et bien plus encore. Il a pour objectif d'aider les développeur·se·s à mettre en place des actions concrètes qui leur permettront, par la suite, de justifier leur niveau d'expérience et leur passion lors de leur première recherche d'emploi.\\[0.5cm]
+
+%     \vfill
+
+%     \textbf{\textcolor{white}{À propos de l'auteur}}\\[0.25cm]
+%     \textcolor{white}{Kevin Delfour est un développeur passionné et expérimenté qui a travaillé sur de nombreux projets dans divers domaines. Il partage ses connaissances et son expérience à travers ce livre pour aider les jeunes développeur·se·s à progresser dans leur carrière.}
+
+%     \vfill
+
+%     \small{\textcolor{gray}{ISBN: XXXXXXXXX}}\\
+%     \small{\textcolor{gray}{Edition \textbf{{Le Vilain Petit Dev}}}}
+
+% \end{flushleft}
+% \vspace*{\fill}
